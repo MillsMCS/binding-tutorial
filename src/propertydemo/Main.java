@@ -15,6 +15,9 @@ public class Main {
                 Bindings.add(bill1.amountDueProperty().add(bill2.amountDueProperty()),
                         bill3.amountDueProperty());
         total.addListener(o -> System.out.println("The binding is now invalid."));
+        total.addListener(
+                (o, oldValue, newValue) -> System.out
+                        .println("Total has been updated to " + newValue));
 
         // First call makes the binding invalid
         bill1.setAmountDue(200.00);
@@ -23,13 +26,11 @@ public class Main {
         bill2.setAmountDue(100.00);
         bill3.setAmountDue(75.00);
 
-        // Make the binding valid...
         System.out.println(total.getValue());
 
         // Make invalid...
         bill3.setAmountDue(150.00);
 
-        // Make valid...
         System.out.println(total.getValue());
     }
 }
