@@ -1,7 +1,5 @@
 package propertydemo;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.NumberBinding;
 
@@ -16,12 +14,7 @@ public class Main {
         NumberBinding total =
                 Bindings.add(bill1.amountDueProperty().add(bill2.amountDueProperty()),
                         bill3.amountDueProperty());
-        total.addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable o) {
-                System.out.println("The binding is now invalid.");
-            }
-        });
+        total.addListener(o -> System.out.println("The binding is now invalid."));
 
         // First call makes the binding invalid
         bill1.setAmountDue(200.00);
