@@ -1,20 +1,14 @@
 package propertydemo;
 
 import java.util.Scanner;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 
 // https://docs.oracle.com/javafx/2/binding/jfxpub-binding.htm
 public class Main {
     public static void main(String[] args) {
         Bill electricBill = new Bill();
 
-        electricBill.amountDueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> o, Number oldVal, Number newVal) {
-                System.out.println("Electric bill has changed!");
-            }
-        });
+        electricBill.amountDueProperty().addListener(
+                (o, oldVal, newVal) -> System.out.println("Electric bill has changed!"));
 
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Enter amount due: ");
