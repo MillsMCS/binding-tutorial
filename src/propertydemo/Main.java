@@ -8,7 +8,8 @@ public class Main {
         Bill electricBill = new Bill();
 
         electricBill.amountDueProperty().addListener(
-                (o, oldVal, newVal) -> System.out.println("Electric bill has changed!"));
+                (o, oldVal, newVal) -> System.out.println(
+                        "Electric bill has changed from " + oldVal + " to " + newVal));
 
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Enter amount due: ");
