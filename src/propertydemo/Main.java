@@ -1,6 +1,7 @@
 package propertydemo;
 
 import java.util.Scanner;
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.NumberBinding;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -9,7 +10,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class Main {
     private static IntegerProperty num1 = new SimpleIntegerProperty(1);
     private static IntegerProperty num2 = new SimpleIntegerProperty(2);
-    private static NumberBinding sum = num1.add(num2);
+    private static NumberBinding sum = Bindings.add(num1, num2);
 
     public static void main(String[] args) {
         showValues();
