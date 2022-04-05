@@ -9,9 +9,9 @@ public class Main {
     public static void main(String[] args) {
         Bill electricBill = new Bill();
 
-        electricBill.amountDueProperty().addListener(new ChangeListener() {
+        electricBill.amountDueProperty().addListener(new ChangeListener<Number>() {
             @Override
-            public void changed(ObservableValue o, Object oldVal, Object newVal) {
+            public void changed(ObservableValue<? extends Number> o, Number oldVal, Number newVal) {
                 System.out.println("Electric bill has changed!");
             }
         });
